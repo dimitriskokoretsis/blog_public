@@ -338,3 +338,5 @@ Simulation approaches are not meant to substitute deductive analysis but to comp
 -   They have educational value, as they expose a different side of the problem and train a different skill-set.
 
 -   As they are based on tangible data, they encourage the learner to "convince themselves" of the conclusions.
+
+(*Full source code for post on <a href="https://github.com/dimitriskokoretsis/blog_public/tree/main/random-biscuits" target="_blank">GitHub</a>*)
