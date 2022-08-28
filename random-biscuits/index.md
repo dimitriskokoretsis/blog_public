@@ -272,11 +272,11 @@ The resulting p-value is *way* higher than 0.05, which formalizes a bit more our
 
 So far, we've examined the end-point results after 2000 biscuit draws: the resulting frequency is about `\(\frac{2}{3}\)`, which is perfectly sufficient for our question.
 
-The benefit of data-driven analysis is, we can ask whatever we want. Consider the following question:
+The benefit of data-driven analysis is, we can look at the data in any way we want. Consider the following question:
 
 > During the 2000 biscuit draws, how did the frequency progress until reaching `\(\frac{2}{3}\)`?
 
-Let's look at what the data says, on the following video:
+Let's see what the data says, on the following video:
 
 
 
