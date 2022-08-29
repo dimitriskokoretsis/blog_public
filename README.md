@@ -8,7 +8,7 @@ For example, the source code for the post [dimitris.netlify.app/posts/random-bis
 
 -   R and RStudio installed in your system.
 
--   R packages "knitr" and "rmarkdown" (install them by running `install.packages(c("knitr","rmarkdown")` in the R environment).
+-   R packages "knitr" and "rmarkdown" (install them by running `install.packages(c("knitr","rmarkdown"))` in the R environment.
 
 ## Instructions:
 
