@@ -1,4 +1,4 @@
-# Source code for content on <https://dimitris.netlify.app>
+# Source code for content on <a href="https://dimitris.netlify.app" target="_blank">dimitris.netlify.app</a>
 
 Here you can find the source code used in my blog posts on <https://dimitris.netlify.app>. Each post has its own zip file, named according to the post's URL.
 
