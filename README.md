@@ -9,13 +9,15 @@ For example, the source code for the post <https://dimitris.netlify.app/posts/ra
 
 - R and RStudio installed in your system.
 
+- R packages knitr and rmarkdown (install them by running `install.packages(c("knitr","rmarkdown")` in the R environment).
+
 ## Instructions:
 
 1. Download and unzip the directory.
 
 2. Open the file "index.Rmd" with RStudio.
 
-3. Download necessary packages.
+3. Install necessary packages noted in 1st code chunk.
 
 4. Make changes and press the knit button.
 
