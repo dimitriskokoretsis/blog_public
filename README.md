@@ -1,5 +1,4 @@
-# blog_public
-Source code for blog posts on https://dimitris.netlify.app
+# Source code for content on <https://dimitris.netlify.app>
 
 Here you can find the source code used in my blog posts on <https://dimitris.netlify.app>. Each post has its own zip file, named according to the post's URL.
 
