@@ -1,3 +1,5 @@
+# This script creates the file intro_illustration.gif
+
 intro.illustration.1 <- magick::image_graph(width=500,height=400)
 
 for(color in c("chocolate","white")) {

@@ -1,3 +1,7 @@
+# The function in this script creates an animated biscuit being drawn out of the box.
+# Text on the animation and biscuit color are input arguments.
+# I made it a function to reduce code, as different animations of the same type needed to be made.
+
 draw_biscuit <- function(iteration.data,biscuit.color) {
   library(data.table)
   

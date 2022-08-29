@@ -25,7 +25,7 @@ My central thesis in this post is that, if we formulate our assumptions well, we
 >
 > You reach into the box, draw out a biscuit and place it flat on the table. A chocolate side is shown facing up, but you do not know the color of the side facing down. Prove that the probability that the other side is also chocolate is `\(\frac{2}{3}\)`.
 
-Let's take it apart. The problem asks a question based on certain assumptions. These assumptions are what I'm going to call a *system* and a *process*.
+Let's take it apart. The problem asks a question based on certain assumptions. These assumptions are what I'm going to call a **system** and a **process**.
 
 
 
@@ -70,7 +70,7 @@ And we already know we're wrong, because our result is not `\(\frac{2}{3}\)`.
 
 So... what went wrong? Well, it all started when we felt **really** confident and "solved" it in a matter of seconds. Because of this, we didn't formulate the assumptions correctly.
 
-The correct pen-and-paper way to solve it is [shown](#correct-pen-and-paper-solution) at the end of this post, but for now, let's see how we can make the computer solve it for us.
+The correct pen-and-paper way to solve it is [shown](#analytical-solution) at the end of this post, but for now, let's see how we can make the computer solve it for us.
 
 ## Solution
 
@@ -78,7 +78,7 @@ The task concerns *probability*, which is about predicting future outcomes. Now,
 
 To take advantage of this, we can turn the task into a statistical one:
 
-> "Of the times a chocolate side was placed facing up, prove that the *frequency* of its down-facing side being also chocolate is `\(\frac{2}{3}\)`."
+> "Of the times a chocolate side was placed facing up, show that the *frequency* of its down-facing side being also chocolate is `\(\frac{2}{3}\)`."
 
 ### Simulate and collect data
 
@@ -95,7 +95,9 @@ biscuit.3 <- c("icing","icing")
 box <- list(biscuit.1,biscuit.2,biscuit.3)
 ```
 
-Next, we **simulate the process** of biscuit drawing repeatedly, and collect the data. Any large number of repetitions will do. The code below performs this 2000 times and collects the results in a `data.table` named `biscuit.draws` for further analysis. I use the <a href="https://rdatatable.gitlab.io/data.table/" target="_blank">`data.table`</a> package for filtering and summarizing data (to experienced R users: no disrespect, I just avoid using the Tidyverse as much as I can).
+Next, we **simulate the process** of biscuit drawing repeatedly, and collect the data. Any large number of repetitions will do. The code below performs this 2000 times and collects the results in a `data.table` named `biscuit.draws` for further analysis.
+
+I use the <a href="https://rdatatable.gitlab.io/data.table/" target="_blank">`data.table`</a> package for filtering and summarizing data (to experienced R users: no disrespect to the Tidyverse, I just avoid it as much as I can).
 
 
 ```r
@@ -153,7 +155,7 @@ biscuit.draws <- lapply(
 
 ### Results
 
-Let's take a quick peek at our results:
+Let's take a quick peek at our data:
 
 
 
@@ -177,11 +179,12 @@ biscuit.draws
 ## 2000:     icing chocolate
 ```
 
-Indeed, there are 2000 rows and each row shows the results of one drawing process. Let's see how many times each different type of side was placed facing up:
+Indeed, there are 2000 rows and each row shows the results of one drawing process. Let's count how many times each different type of side was placed facing up:
 
 
 ```r
 # Count occurrences of each different type of up.side
+# ".N" is a special symbol in data.table, which gives the number of rows
 biscuit.draws[,.(count=.N),by=up.side]
 ```
 
@@ -191,7 +194,7 @@ biscuit.draws[,.(count=.N),by=up.side]
 ## 2:     icing   987
 ```
 
-Chocolate and icing were drawn as up-facing sides about half of the times each (1013 and 987, out of 2000 total draws). Now let's see how many times each *combination* of sides was drawn:
+Chocolate and icing were drawn as up-facing sides about half of the times each (1013 and 987, out of 2000 total draws). Now let's count how many times each **combination** of sides was drawn:
 
 
 ```r
@@ -207,15 +210,15 @@ biscuit.draws[,.(count=.N),by=.(up.side,down.side)]
 ## 4:     icing chocolate   331
 ```
 
-So, from the 1013 times the up-facing side was chocolate, the down-facing side was also chocolate 667 times - *suspiciously* close to `\(\frac{2}{3}\)` of 1013.
+So, from the 1013 times the up-facing side was chocolate, the down-facing side was also chocolate 667 times - **suspiciously** close to `\(\frac{2}{3}\)` of 1013.
 
 
 
 
 
 <div class="figure">
-<img src="images/simulation_result.gif" alt="Left: illustration of random biscuit drawing; right: results after 2000 biscuit draws. Green frame on right side: cases considered." width="100%" />
-<p class="caption">Figure 2: Left: illustration of random biscuit drawing; right: results after 2000 biscuit draws. Green frame on right side: cases considered.</p>
+<img src="images/simulation_result.gif" alt="Left: illustration of random biscuit drawing; right: results after 2000 biscuit draws. Green frame on right side: considered cases." width="100%" />
+<p class="caption">Figure 2: Left: illustration of random biscuit drawing; right: results after 2000 biscuit draws. Green frame on right side: considered cases.</p>
 </div>
 
 Let's calculate the exact frequency:
@@ -237,7 +240,7 @@ This number is incredibly close to the desired `\(\frac{2}{3}\)`, or 0.666.
 
 #### Significance testing
 
-We could stop here, declare victory, and it would be fine. In the interest of thoroughness, we can perform a chi-squared goodness-of-fit test to formally check if the observations deviate significantly from our expectations.
+We could stop here, declare victory, and it would be fine. In the interest of thoroughness, we can perform a *chi-squared* goodness-of-fit test to formally check if the observations deviate significantly from our expectations.
 
 As in any significance test, there is a *null hypothesis* that the observations comply with our expected frequencies. If the resulting p-value is *less than 0.05*, then we can conclude that the observed frequencies deviate significantly from our expectation. Otherwise, we cannot reject the null hypothesis.
 
@@ -266,11 +269,11 @@ chisq.test(x=c(both.sides.chocolate,upside.only.chocolate),
 ## X-squared = 0.30849, df = 1, p-value = 0.5786
 ```
 
-The resulting p-value is *way* higher than 0.05, which formalizes a bit more our initial conclusion: the probability in question is indeed `\(\frac{2}{3}\)`.
+The resulting p-value is **way** higher than 0.05, which formalizes a bit more our initial conclusion: the probability in question is indeed `\(\frac{2}{3}\)`.
 
 #### Progression of frequency
 
-So far, we've examined the end-point results after 2000 biscuit draws: the resulting frequency is about `\(\frac{2}{3}\)`, which is perfectly sufficient for our question.
+So far, we've examined the end-point results **after** 2000 biscuit draws: the resulting frequency is about `\(\frac{2}{3}\)`, which is perfectly sufficient for our question.
 
 The benefit of data-driven analysis is, we can look at the data in any way we want. Consider the following question:
 
@@ -286,13 +289,13 @@ Let's see what the data says, on the following video:
 
 </video>
 
-Video 1: Progression of frequency throughout simulations. Red dashed line: `\(\frac{2}{3}\)`.
+Video 1: Progression of frequency throughout simulations. Red dashed line at `\(\frac{2}{3}\)`.
 
-During the first few draws the frequency fluctuates, then it sits a bit higher than `\(\frac{2}{3}\)`, before settling at `\(\frac{2}{3}\)` after around 300 simulated draws.
+During the first few draws the frequency fluctuates, then it sits a bit higher than `\(\frac{2}{3}\)`, before settling at `\(\frac{2}{3}\)` after around 300 simulated draws. This makes sense: each biscuit draw is random individually, so the first few draws show no pattern. But the more data we gather, the more the frequency **approaches** the true probability.
 
-### Correct pen-and-paper solution
+### Analytical solution
 
-The more traditional way to approach this problem is to lay down and count all possible choices to find the **true** probabilities. This is also called the *counting* method.
+The "traditional" way to approach this problem is to lay down and count all possible outcomes to find the **true** probabilities. This is also called the *counting* method.
 
 There are 3 biscuits, i.e. 6 up-facing sides available to draw from:
 
@@ -312,31 +315,41 @@ There are 3 biscuits, i.e. 6 up-facing sides available to draw from:
 
     3.  Icing side of mixed biscuit `\(\implies\)` down-facing side: chocolate
 
-Let's depict these possible outcomes in the *sample space*, which includes all possible outcomes of the biscuit drawing process:
+Let's depict these outcomes in the *sample space*, which includes all possible outcomes of the biscuit drawing process:
 
 
 
 <div class="figure">
-<img src="images/probability_result.gif" alt="Left: illustration of random biscuit drawing; right: sample space including all possible outcomes of the process. Green frame on right side: outcomes considered." width="100%" />
-<p class="caption">Figure 3: Left: illustration of random biscuit drawing; right: sample space including all possible outcomes of the process. Green frame on right side: outcomes considered.</p>
+<img src="images/probability_result.gif" alt="Left: illustration of random biscuit drawing; right: sample space including all possible outcomes of the process. Green frame on right side: considered outcomes." width="100%" />
+<p class="caption">Figure 3: Left: illustration of random biscuit drawing; right: sample space including all possible outcomes of the process. Green frame on right side: considered outcomes.</p>
 </div>
 
-It's obvious from the analysis above and from figure 3 that the real probability of a down-facing chocolate side after a chocolate-covered up-facing side actually is `\(\frac{2}{3}\)`.
+It's obvious from the outcome listing and from figure 3 that the real probability of a down-facing chocolate side after a chocolate-covered up-facing side actually is `\(\frac{2}{3}\)`.
 
-## Conclusion
+## What's the point
 
-The biscuit-drawing problem states a system and a random process, and asks a question about probability. The traditional [counting method](#correct-pen-and-paper-method) is to count all possible outcomes to derive the *true* probabilities. On the other hand, [our solution](#solution) simulated the system, repeated the process a large number of times (namely 2000) and looked at *frequencies* of events as a read-out of their probabilities.
+The biscuit-drawing problem gives a random process, and asks a question about probability. The [analytical method](#analytical-solution) is to count all possible outcomes to derive the *true probabilities*. On the other hand, our [simulation method](#solution) was to repeat the process 2000 times and look at *frequencies* of events as a read-out of their probabilities.
 
-The two different approaches arrive to the same conclusion from different angles. The counting method requires a thorough understanding of all outcomes of the random process. It's a *deductive* method, relies on intuition and gives definitive results. On the contrary, simulation approaches are *inductive* and outcome-agnostic. They only require accurate formulation of the system and the random process, with the result emerging as a pattern from performing it.
+The two methods arrive to the same conclusion from different angles. The **analytical method** is *deductive*. It relies on intuition to consider all outcomes of the random process and gives definitive answers. It's a *top-down* approach to the answer. On the contrary, our **simulation method** is *inductive*. It is agnostic to the possible outcomes of the random process and only requires its accurate formulation, with the result emerging as a pattern from performing it. It's a *bottom-up* approach.
 
-Simulation approaches are not meant to substitute deductive analysis but to complement it, giving (at least) the following benefits:
+|  | Analytical method | Simulation method |
+| - | ------------------ | ------------------ |
+Reasoning: | Deductive | Inductive |
+Requires: | Understanding of process and outcomes | Understanding of process, multiple iterations |
+Provides: | True probabilities | Close approximations |
 
--   As they do not rely on intuition, they can point towards the right conclusions, even if they are counter-intuitive (as in the <a href="https://en.wikipedia.org/wiki/Monty_Hall_problem" target ="_blank">Monty Hall problem</a>).
+By now, it's fair to wonder: what's the point? Why go through the trouble to simulate hundreds or thousands of iterations and analyze data (and learn coding to do all that), when you can just use the counting method? It requires extra effort and, after all, simulations only give *approximate* probabilities.
 
--   They can provide leads for further theoretical research.
+Simulation approaches are not meant to substitute analytical ones but to complement them, adding value in (at least) the following ways:
 
--   They have educational value, as they expose a different side of the problem and train a different skill-set.
+-   As they don't rely on intuition, they can point towards the right conclusions, even if they are counter-intuitive (as in the <a href="https://en.wikipedia.org/wiki/Monty_Hall_problem" target ="_blank">Monty Hall problem</a>).
 
--   As they are based on tangible data, they encourage the learner to "convince themselves" of the conclusions.
+-   They can provide leads for analytical research.
+
+-   Educational value:
+    
+    -   They enable a more *interactive* pedagogical approach: recreating a process and analyzing tangible data allows the learner to reach the conclusions on their own.
+    
+    -   They help the learner bridge the mental gap between probability theory and statistics.
 
 (*Full source code for post on <a href="https://github.com/dimitriskokoretsis/blog_public/tree/main/random-biscuits" target="_blank">GitHub</a>*)

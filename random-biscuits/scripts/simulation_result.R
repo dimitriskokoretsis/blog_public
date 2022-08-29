@@ -1,3 +1,5 @@
+# This script creates the file "simulation_result.gif"
+
 library(ggplot2)
 library(ggthemes)
 

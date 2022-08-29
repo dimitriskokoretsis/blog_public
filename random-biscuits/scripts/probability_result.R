@@ -1,3 +1,5 @@
+# This script creates the file "probability_result.gif"
+
 prob.frame.1 <- magick::image_graph(width=240,height=400)
 par(pty="m",
     xaxt="n",yaxt="n",
