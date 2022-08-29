@@ -9,7 +9,7 @@ For example, the source code for the post <https://dimitris.netlify.app/posts/ra
 
 - R and RStudio installed in your system.
 
-- R packages knitr and rmarkdown (install them by running `install.packages(c("knitr","rmarkdown")` in the R environment).
+- R packages "knitr" and "rmarkdown" (install them by running `install.packages(c("knitr","rmarkdown")` in the R environment).
 
 ## Instructions:
 
@@ -17,16 +17,17 @@ For example, the source code for the post <https://dimitris.netlify.app/posts/ra
 
 2. Open the file "index.Rmd" with RStudio.
 
-3. Install necessary packages noted in 1st code chunk.
+3. Install necessary packages noted in 1st code chunk. Run `install.packages(c("package.1","package.2",...))`.
 
-4. Make changes and press the knit button.
+4. Try your own changes to the code chunks or to the linked scripts. When finished, select *File > Knit Document*.
 
-Considerations:
+5. A new "index.html" file should be created. Open it with any HTML browser.
 
-- The "index.Rmd" file contains the main text and code chunks with **all** the scripting needed to recreate the blog post.
-Exceptions to this are noted.
+## Considerations:
 
-- Often, code chunks in "index.Rmd" link to external scripts, contained in a "scripts" subfolder. These are also necessary to recreate the post.
+- The "index.Rmd" file contains the main text and code chunks with **all** the scripting needed to recreate the document. Exceptions to this are noted.
+
+- Code chunks in "index.Rmd" often link to external scripts, contained in a "scripts" subfolder. These are also necessary to recreate the document.
 
 - I try to optimize the code for minimal repetition of long procedures during re-rendering.
 This means that, once a long process is finished, its result is stored in a file for future reading.
