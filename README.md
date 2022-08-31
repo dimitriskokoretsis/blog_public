@@ -1,4 +1,4 @@
-# Source code for content on [dimitris.netlify.app](https://dimitris.netlify.app)
+# Source code for my educational blog posts
 
 Here you can find the source code used for my educational posts on [dimitris.netlify.app](https://dimitris.netlify.app).
 
