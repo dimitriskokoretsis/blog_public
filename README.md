@@ -1,31 +1,35 @@
 # Source code for content on [dimitris.netlify.app](https://dimitris.netlify.app)
 
-Here you can find the source code used in my blog posts on [dimitris.netlify.app](https://dimitris.netlify.app). Each post has its own zip file, named according to the post's URL.
+Here you can find the source code used for my educational posts on [dimitris.netlify.app](https://dimitris.netlify.app).
 
-For example, the source code for the post [dimitris.netlify.app/posts/random-biscuits/](https://dimitris.netlify.app/posts/random-biscuits/) is in the zip file "random-biscuits.zip".
+Each post has its own zip file, named according to the post's URL. For example, the source code for the post [dimitris.netlify.app/posts/random-biscuits/](https://dimitris.netlify.app/posts/random-biscuits/) is in the zip file "random-biscuits.zip".
 
-## Prerequisites:
+## Prerequisites
 
--   R and RStudio installed in your system.
+-   The R language and the RStudio integrated development environment (IDE) must be installed. Download the appropriate installer for R [here](https://cran.r-project.org/), and for the desktop version of RStudio [here](https://www.rstudio.com/products/rstudio/download/).
 
--   R packages "knitr" and "rmarkdown" (install them by running `install.packages(c("knitr","rmarkdown"))` in the R environment.
+-   R packages `knitr` and `rmarkdown` must be installed. Install them by running `install.packages(c("knitr","rmarkdown"))` in the R console.
 
-## Instructions:
+## Description
 
-1.  Download and unzip the directory.
+Each zipped folder contains a file named "index.Rmd". This contains the main text and code chunks needed to recreate the full HTML document. Other contents may be:
 
-2.  Open the file "index.Rmd" with RStudio.
+-   A subfolder named "scripts". This contains scripts with code used during HTML rendering of "index.Rmd". Code chunks in "index.Rmd" run code from scripts in this folder.
 
-3.  Install necessary packages noted in 1st code chunk. Run `install.packages(c("package.1","package.2",...))`.
+-   Other possible files and folders, used for the HTML document.
 
-4.  Try your own changes to the code chunks or to the linked scripts. When finished, select *File \> Knit Document*.
+The "index.Rmd" file and "scripts" folder contain **all** the text and code needed to recreate the HTML document. Exceptions to this are noted.
 
-5.  A new "index.html" file should be created. Open it with any HTML browser.
+## Instructions
 
-## Considerations:
+1.  Download the zip file and unzip its contents into a folder.
 
--   The "index.Rmd" file contains the main text and code chunks with **all** the scripting needed to recreate the document. Exceptions to this are noted.
+2.  Open the file "index.Rmd" with RStudio. This is an RMarkdown file, combining R code with Markdown-formatted text.
 
--   Code chunks in "index.Rmd" often link to external scripts, contained in a "scripts" subfolder. These are also necessary to recreate the document.
+3.  Install R packages that are necessary for the code to run. These are noted in 1st code chunk. Run `install.packages(c("package.1","package.2",...))` in the R console (substituting `"package.1", "package.2",...` with the actual package names). Do not forget to add quote marks.
 
--   I try to optimize the code for minimal repetition of long procedures during re-rendering. This means that, once a long process is finished, its result is stored in a file for future reading. If the file already exists during rendering, it is read and not created anew. If you want to create new such files, you need to delete or rename the original files so they are not detected during rendering.
+4.  **Play around**: Try your own modifications to the code chunks of "index.Rmd" or to the linked scripts. When finished, select *File \> Knit Document* to render the RMarkdown document into HTML.
+
+    **Note:** I try to optimize the code for minimal repetition of computationally-intensive processes during re-rendering to HTML. This means that, once such a process is finished (e.g. to create a data set, image, or animation), its result is stored in a file for future reading. If such a file already exists during rendering, it is read and not created anew. **If you want to create new such files, you need to delete or rename the original ones, so they are not detected during rendering.**
+
+5.  The resulting document named "index.html" should be created. View it with any HTML browser.
