@@ -1,6 +1,6 @@
-# Source code for my educational blog posts
+# Source code for [dimitris.netlify.app](https://dimitris.netlify.app) blog posts
 
-Here you can find the source code used for my educational posts on [dimitris.netlify.app](https://dimitris.netlify.app).
+Here you can find the source code used for my blog posts on [dimitris.netlify.app](https://dimitris.netlify.app).
 
 Each post has its own zip file, named according to the post's URL. For example, the source code for the post [dimitris.netlify.app/posts/random-biscuits/](https://dimitris.netlify.app/posts/random-biscuits/) is in the zip file "random-biscuits.zip".
 
