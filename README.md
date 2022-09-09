@@ -6,17 +6,17 @@ Each post has its own zip file, named according to the post's URL. For example, 
 
 ## Prerequisites
 
--   The R language and the RStudio integrated development environment (IDE) must be installed. Download the appropriate installer for R [here](https://cran.r-project.org/), and for the desktop version of RStudio [here](https://www.rstudio.com/products/rstudio/download/).
+-   The R language and the RStudio integrated development environment (IDE) must be installed. Download the appropriate installer for R [here](https://cran.r-project.org/), and the desktop version of RStudio [here](https://www.rstudio.com/products/rstudio/download/).
 
 -   R packages `knitr` and `rmarkdown` must be installed. Install them by running `install.packages(c("knitr","rmarkdown"))` in the R console.
 
 ## Description
 
-Each zipped folder contains a file named "index.Rmd". This contains the main text and code chunks needed to recreate the full HTML document. Other contents may be:
+Each zipped folder contains 2 files named "index.Rmd". This is an RMarkdown document, containing the main text and code chunks needed to recreate the full HTML document. Other contents may be:
 
--   A subfolder named "scripts". This contains scripts with code used during HTML rendering of "index.Rmd". Code chunks in "index.Rmd" run code from scripts in this folder.
+-   A subfolder named "scripts". This contains scripts with R code used during HTML rendering of "index.Rmd". Code chunks in "index.Rmd" run code from scripts in this folder.
 
--   Other possible files and folders, used for the HTML document.
+-   Other possible data used for rendering the HTML document.
 
 The "index.Rmd" file and "scripts" folder contain **all** the text and code needed to recreate the HTML document. Exceptions to this are noted.
 
@@ -30,6 +30,6 @@ The "index.Rmd" file and "scripts" folder contain **all** the text and code need
 
 4.  **Play around**: Try your own modifications to the code chunks of "index.Rmd" or to the linked scripts. When finished, select *File \> Knit Document* to render the RMarkdown document into HTML.
 
-    **Note:** I try to optimize the code for minimal repetition of computationally-intensive processes during re-rendering to HTML. This means that, once such a process is finished (e.g. to create a data set, image, or animation), its result is stored in a file for future reading. If such a file already exists during rendering, it is read and not created anew. **If you want to create new such files, you need to delete or rename the original ones, so they are not detected during rendering.**
+    **Note:** I try to optimize the code for minimal repetition of computationally-intensive tasks during re-rendering to HTML. This means that, once such a task is finished (e.g. creating a data set, image, or animation), its result is stored in a file for future reading. If such a file already exists during rendering, it is read and not created anew. **If you want to create new such files, delete or rename the original ones, so they are not detected during rendering.**
 
 5.  The resulting document named "index.html" should be created. View it with any HTML browser.
