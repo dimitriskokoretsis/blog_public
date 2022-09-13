@@ -12,7 +12,7 @@ Each post has its own zip file, named according to the post's URL. For example, 
 
 ## Description
 
-Each zipped folder contains 2 files named "index.Rmd". This is an RMarkdown document, containing the main text and code chunks needed to recreate the full HTML document. Other contents may be:
+Each zipped folder contains a file named "index.Rmd". This is an RMarkdown document, containing the main text and code chunks needed to recreate the full HTML document. Other contents may be:
 
 -   A subfolder named "scripts". This contains scripts with R code used during HTML rendering of "index.Rmd". Code chunks in "index.Rmd" run code from scripts in this folder.
 
