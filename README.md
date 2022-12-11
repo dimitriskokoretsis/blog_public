@@ -30,6 +30,6 @@ The "index.Rmd" file and "scripts" folder contain **all** the text and code need
 
 4.  **Play around**: Try your own modifications to the code chunks of "index.Rmd" or to the linked scripts. When finished, select *File \> Knit Document* to render the RMarkdown document into HTML.
 
-    **Note:** I try to optimize the code for minimal repetition of computationally-intensive tasks during re-rendering to HTML. This means that, once such a task is finished (e.g. creating a data set, image, or animation), its result is stored in a file for future reading. If such a file already exists during rendering, it is read and not created anew. **If you want to create new such files, delete or rename the original ones, so they are not detected during rendering.**
+    **Note:** I try to optimize the code for minimal repetition of computationally-intensive tasks (within reason) during re-rendering to HTML. This means that once such a task is finished (e.g. creating a data set, image, or animation), its result is stored in a file for future reading. If such a file already exists during rendering, it is read and not created anew. **If you want to create new such files, delete or rename the original ones, so they are not detected during rendering.**
 
 5.  The resulting document named "index.html" should be created. View it with any HTML browser.
