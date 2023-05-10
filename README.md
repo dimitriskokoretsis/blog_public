@@ -14,11 +14,9 @@ Each post has its own zip file, named according to the post's URL. For example, 
 
 Each zipped folder contains a file named "index.Rmd". This is an RMarkdown document, containing the main text and code chunks needed to recreate the full HTML document. Other contents may be:
 
--   A subfolder named "scripts". This contains scripts with R code used during HTML rendering of "index.Rmd". Code chunks in "index.Rmd" run code from scripts in this folder.
+-   A subfolder named "scripts". This contains scripts with R code used during HTML rendering of "index.Rmd". Code chunks in "index.Rmd" may run code from these scripts.
 
--   Other possible data used for rendering the HTML document.
-
-The "index.Rmd" file and "scripts" folder contain **all** the text and code needed to recreate the HTML document. Exceptions to this are noted.
+-   Other possible data used for rendering the HTML document - for example images or data.
 
 ## Instructions
 
@@ -26,7 +24,7 @@ The "index.Rmd" file and "scripts" folder contain **all** the text and code need
 
 2.  Open the file "index.Rmd" with RStudio. This is an RMarkdown file, combining R code with Markdown-formatted text.
 
-3.  Install R packages that are necessary for the code to run. These are noted in 1st code chunk. Run `install.packages(c("package.1","package.2",...))` in the R console (substituting `"package.1", "package.2",...` with the actual package names). Do not forget to add quote marks.
+3.  Install R packages that are necessary for the code to run. These are noted in 1st code chunk. Run `install.packages(c("package.1","package.2",...))` in the R console (substituting `"package.1", "package.2",...` with the actual package names). Do not forget to add quote marks to each package.
 
 4.  **Play around**: Try your own modifications to the code chunks of "index.Rmd" or to the linked scripts. When finished, select *File \> Knit Document* to render the RMarkdown document into HTML.
 
