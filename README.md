@@ -12,17 +12,17 @@ Each post has its own zip file, named according to the post's URL. For example, 
 
 ## Description
 
-Each zipped folder contains a file named "index.Rmd". This is an RMarkdown document, containing the main text and code chunks needed to recreate the full HTML document. Other contents may be:
+Each zipped folder contains a file named "index.Rmd". This is an RMarkdown document with the main text (Markdown) and code chunks (R code) needed to recreate the full HTML document. Other contents may be:
 
--   A subfolder named "scripts". This contains scripts with R code used during HTML rendering of "index.Rmd". Code chunks in "index.Rmd" may run code from these scripts.
+-   A subfolder named "scripts". This contains scripts with R code used during rendering of "index.Rmd". Code chunks in "index.Rmd" may run code from these scripts.
 
--   Other possible data used for rendering the HTML document - for example images or data.
+-   Other possible data used for rendering the HTML page - for example images or data.
 
 ## Instructions
 
 1.  Download the zip file and unzip its contents into a folder.
 
-2.  Open the file "index.Rmd" with RStudio. This is an RMarkdown file, combining R code with Markdown-formatted text.
+2.  Open the file "index.Rmd" with RStudio.
 
 3.  Install R packages that are necessary for the code to run. These are noted in 1st code chunk. Run `install.packages(c("package.1","package.2",...))` in the R console (substituting `"package.1", "package.2",...` with the actual package names). Do not forget to add quote marks to each package.
 
