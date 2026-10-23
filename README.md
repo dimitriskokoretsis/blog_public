@@ -26,9 +26,9 @@ Each zipped folder contains a file named "index.Rmd". This is an RMarkdown docum
 
 2.  Open the file "index.Rmd" with RStudio.
 
-3.  Install R packages that are necessary for the code to run. These are noted in 1st code chunk. Run `install.packages(c("package.1","package.2",...))` in the R console (substituting `"package.1", "package.2",...` with the actual package names). Do not forget to add quote marks to each package.
+3.  Install R packages that are necessary for the code to run. These are noted in the 1st code chunk. Run `install.packages(c("package.1","package.2",...))` in the R console (substituting `"package.1", "package.2",...` with the actual package names). Do not forget to add quote marks to each package.
 
-4.  **Play around**: Try your own modifications to the code chunks of "index.Rmd" or to the linked scripts. When finished, select *File \> Knit Document* to render the RMarkdown document into HTML.
+4.  **Play around:** Try your own modifications to the code chunks of "index.Rmd" or to the linked scripts. When finished, select *File \> Knit Document* to render the RMarkdown document into HTML.
 
     **Note:** I try to optimize the code for minimal repetition of computationally-intensive tasks (within reason) during re-rendering to HTML. This means that once such a task is finished (e.g. creating a data set, image, or animation), its result is stored in a file for future reading. If such a file already exists during rendering, it is read and not created anew. **If you want to create new such files, delete or rename the original ones, so they are not detected during rendering.**
 
