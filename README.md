@@ -1,6 +1,6 @@
 # Source code for blog posts on [dimitris.netlify.app](https://dimitris.netlify.app)
 
-***Update 23-Oct-2026:** This GitHub repository is not used anymore. The source code is available directly on the website. See the relevant [webpage](https://dimitris.netlify.app/source-code/).*
+***Update 23-Oct-2026:** This GitHub repository is not used anymore. The source code is available directly on the website. See up-to-date information on the relevant [webpage](https://dimitris.netlify.app/source-code/).*
 
 Here you can find the source code used for my blog posts on [dimitris.netlify.app](https://dimitris.netlify.app).
 
